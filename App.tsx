@@ -37,12 +37,10 @@ function App(): JSX.Element {
             console.error('Error removing glare:', error);
           },
           (processedImageUri: string) => {
-            // Set the processed image URI and hide the camera
             setImageSource(`file://${processedImageUri}`);
             setShowCamera(false);
           }
         );
-          // setImageSource(photo.path);
         setShowCamera(false);
       } catch (error) {
         console.error('Error capturing photo:', error);
@@ -109,11 +107,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
-  },
-  button: {
-    backgroundColor: '#81b741',
-    // padding: 10,
-    // borderRadius: 5,
   },
   image: {
     width: 200,
