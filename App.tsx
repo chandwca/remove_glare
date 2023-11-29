@@ -62,12 +62,15 @@ function App(): JSX.Element {
   
   return (
     <View style={styles.container}>
+      <Text style={styles.heading}>Capture the moment</Text>
       {showCamera ? (
         <>
           <Camera ref={camera} isActive={showCamera} photo={true} device={devices} />
           <View style={styles.container}>
-            <Button title="Take Picture" onPress={capturePhoto} />
-            <Button title="Close Camera" onPress={closeCamera} />
+          <View style={styles.buttonContainer}>
+            <Button title="Take Picture"  onPress={capturePhoto}  color="#81b741"  />
+            <Button title="Close Camera" onPress={closeCamera}  color="#81b741"/>
+            </View>
           </View>
         </>
       ) : (
@@ -76,7 +79,7 @@ function App(): JSX.Element {
             <Image source={{ uri: imageSource  }} style={styles.image} />
           ) : null}
           <View style={styles.buttonContainer}>
-            <Button title="Open Camera" onPress={openCamera} />
+            <Button title="Open Camera" onPress={openCamera} color="#81b741" />
           </View>
         </>
       )}
@@ -87,9 +90,17 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'purple',
+    backgroundColor: '#372e47',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  heading: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    marginBottom: 20,
+    padding:10
   },
   
   buttonContainer: {
@@ -98,6 +109,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
+  },
+  button: {
+    backgroundColor: '#81b741',
+    // padding: 10,
+    // borderRadius: 5,
   },
   image: {
     width: 200,
