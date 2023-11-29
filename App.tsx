@@ -10,9 +10,6 @@ import {
 import { Camera, useCameraDevice } from 'react-native-vision-camera';
 import OpenCV from './src/NativeModules/OpenCV';
 
-
-
-
 function App(): JSX.Element {
   const camera = useRef<Camera>(null);
   const devices: any = useCameraDevice('back');
@@ -34,7 +31,6 @@ function App(): JSX.Element {
       try {
         const currentCamera = camera.current;
         const photo: { path: string } = await currentCamera.takePhoto({});
-        const snap:string = require('./src/assert/glare_new.jpg');
         console.log(photo.path,"photo.path")
         OpenCV.removeGlare(photo.path, 
           (error: string) => {
